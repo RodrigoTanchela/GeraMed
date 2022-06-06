@@ -5,6 +5,9 @@
  */
 package pi.view;
 
+import java.awt.Color;
+import java.util.Locale;
+
 /**
  *
  * @author Pichau
@@ -16,6 +19,19 @@ public class TelaCadastraMedico extends javax.swing.JFrame {
      */
     public TelaCadastraMedico() {
         initComponents();
+        //getContentPane().setBackground(Color.red);
+    }
+    
+    public void exibirTela(){
+        setVisible(true);    
+    }
+    
+    public void setTela(){
+        setSize(1280,900);
+        lblImg.setBounds(50,50,50,50);
+        lblImg.setLocation(250,100);
+        setLocationRelativeTo(null);
+        getContentPane().setBackground(new Color(151,202,178));
     }
 
     /**
@@ -27,17 +43,32 @@ public class TelaCadastraMedico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
+        lblImg = new javax.swing.JLabel();
+
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setAlwaysOnTop(true);
+        setForeground(new java.awt.Color(102, 102, 0));
+        setLocation(new java.awt.Point(640, 320));
+
+        lblImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rodrigo\\Desktop\\Prototipos e imagens\\imagens\\logoSistema5.png")); // NOI18N
+        lblImg.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
+        lblImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
+            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addGap(66, 66, 66))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
+            .addGroup(layout.createSequentialGroup()
+                .addContainerGap()
+                .addComponent(lblImg)
+                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
         );
 
         pack();
@@ -79,5 +110,6 @@ public class TelaCadastraMedico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel lblImg;
     // End of variables declaration//GEN-END:variables
 }

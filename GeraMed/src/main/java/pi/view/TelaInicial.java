@@ -1,36 +1,20 @@
 /*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
+ * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
+ * Click nbfs://nbhost/SystemFileSystem/Templates/GUIForms/JFrame.java to edit this template
  */
 package pi.view;
 
-import java.awt.Color;
-import java.util.Locale;
-
 /**
  *
- * @author Pichau
+ * @author Rodrigo
  */
-public class TelaCadastraPaciente extends javax.swing.JFrame {
+public class TelaInicial extends javax.swing.JFrame {
 
     /**
-     * Creates new form TelaCadastraPaciente
+     * Creates new form TelaInicial
      */
-    public TelaCadastraPaciente() {
+    public TelaInicial() {
         initComponents();
-    }
-    
-    public void exibirTela(){
-        setLocationRelativeTo(null); 
-    }
-    
-    public void setTela(){
-        setSize(1280,720);
-        lblImg.setLocation(640,320);
-        lblImg.setBounds(50,50,50,50); 
-        setLocationRelativeTo(null);
-        getContentPane().setBackground(new Color(151,202,178));
     }
 
     /**
@@ -42,14 +26,18 @@ public class TelaCadastraPaciente extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblImg = new javax.swing.JLabel();
-
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        getContentPane().setLayout(null);
 
-        lblImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rodrigo\\Desktop\\Prototipos e imagens\\imagens\\logoSistema5.png")); // NOI18N
-        getContentPane().add(lblImg);
-        lblImg.setBounds(60, 0, 400, 400);
+        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
+        getContentPane().setLayout(layout);
+        layout.setHorizontalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 400, Short.MAX_VALUE)
+        );
+        layout.setVerticalGroup(
+            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+            .addGap(0, 300, Short.MAX_VALUE)
+        );
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -71,25 +59,24 @@ public class TelaCadastraPaciente extends javax.swing.JFrame {
                 }
             }
         } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastraPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastraPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastraPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(TelaCadastraPaciente.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+            java.util.logging.Logger.getLogger(TelaInicial.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new TelaCadastraPaciente().setVisible(true);
+                new TelaInicial().setVisible(true);
             }
         });
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblImg;
     // End of variables declaration//GEN-END:variables
 }
