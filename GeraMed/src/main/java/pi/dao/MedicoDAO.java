@@ -25,7 +25,7 @@ public class MedicoDAO {
         String sqlCreate = "CREATE TABLE IF NOT EXISTS MEDICO"
                 + "   (id            INTEGER PRIMARY KEY AUTOINCREMENT,"
                 + "   CRM            VARCHAR(20),"
-                + "   nome           VARCHAR(100)"
+                + "   nome           VARCHAR(100),"
                 + "   CEP            VARCHAR(20),"
                 + "   email            VARCHAR(100))";
 

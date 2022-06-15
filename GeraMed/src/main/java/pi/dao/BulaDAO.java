@@ -6,28 +6,33 @@
 package pi.dao;
 
 import java.sql.Connection;
+import java.sql.Date;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 import java.sql.Statement;
 import java.util.ArrayList;
 import java.util.List;
+import pi.model.Bula;
 import pi.model.Paciente;
 
 /**
  *
  * @author Pichau
  */
-public class PacienteDAO {
+public class BulaDAO {
+    
     
     private static void createTable() {
         Connection connection = ConnectDB.getConnection();
-        String sqlCreate = "CREATE TABLE IF NOT EXISTS PACIENTE"
+        String sqlCreate = "CREATE TABLE IF NOT EXISTS BULA"
                 + "   (id            INTEGER PRIMARY KEY AUTOINCREMENT,"
-                + "   CPF            VARCHAR(20),"
-                + "   nome           VARCHAR(100),"
-                + "   CEP            VARCHAR(20),"
-                + "   email            VARCHAR(100))";
+                + "   numeroDoRegistro             INTEGER,"
+                + "   categoriaRegulatoria         VARCHAR(100),"
+                + "   periodoDePublicacao          DATE,"
+                + "   dataFinal                    Date,"
+                + "   paciente                     INTEGER,"
+                + "   medicamento                  INTEGER)";
 
         Statement stmt = null;
         try {
@@ -38,26 +43,28 @@ public class PacienteDAO {
         }
     }
     
-    public static boolean salvarPaciente(Paciente paciente){
+    public static boolean salvarBula(Bula bula){
         createTable();
         Connection connection = ConnectDB.getConnection();
-        String sql = "INSERT INTO PACIENTE (CPF,nome,CEP,email) VALUES(?, ?, ?, ?)";
+        String sql = "INSERT INTO BULA (numeroDoRegistro,CategoriaRegulatoria,PeriodoDePublicacao,dataFinal,paciente,medicamento) VALUES(?, ?, ?, ?, ?, ?)";
         PreparedStatement pstmt;
 
         try {
             pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, paciente.getCpf());
-            pstmt.setString(2, paciente.getNome());
-            pstmt.setString(3, paciente.getCep());
-            pstmt.setString(4, paciente.getEmail());
+            pstmt.setInt(1, bula.getNumeroDoRegistro());
+            pstmt.setString(2, bula.getCategoriaRegulatoria());
+            pstmt.setDate(3, bula.getPeriodoDePublicacao());
+            pstmt.setDate(4, bula.getDataFinal());
+            pstmt.setInt(5, bula.getPaciente().getId());
+            pstmt.setDate(6, bula.getMedicamento().getId());
             pstmt.execute();
 
-            System.out.println("Paciente cadastrado!");
+            System.out.println("Bula cadastrada!");
 
             final ResultSet resultado = pstmt.getGeneratedKeys();
             if (resultado.next()) {
                 int id = resultado.getInt(1);
-                paciente.setId(id);
+                bula.setId(id);
             }
             return true;
             
@@ -67,32 +74,11 @@ public class PacienteDAO {
         } 
     }
     
-    public static boolean atualizarPaciente(Paciente paciente){
+ public static List<Bula> getTodasBulas(){
         createTable();
+        List<Bula> bulas = new ArrayList<>();
         Connection connection = ConnectDB.getConnection();
-        String sql = "UPDATE PACIENTE SET email=? WHERE CPF=?";
-        PreparedStatement pstmt;
-
-        try {
-            pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, paciente.getEmail());            
-            pstmt.setString(2, paciente.getCpf());
-            pstmt.execute();
-
-            System.out.println("Paciente atualizado!");
-            return true;
-            
-        } catch (SQLException e) {
-            System.out.println(e.getMessage());
-            return false;
-        } 
-    }
-    
-    public static List<Paciente> getTodosPaciente(){
-        createTable();
-        List<Paciente> pacientes = new ArrayList<>();
-        Connection connection = ConnectDB.getConnection();
-        String sql = "SELECT * FROM PACIENTE";
+        String sql = "SELECT * FROM BULA";
         Statement stmt;
 
         try {
@@ -101,38 +87,40 @@ public class PacienteDAO {
 
             while (resultado.next()) {
                 int id = resultado.getInt("id");
-                String cpf = resultado.getString("CPF");
-                String nome = resultado.getString("nome");
-                String cep = resultado.getString("CEP");
-                String email = resultado.getString("email");
+                int numeroDoRegistro = resultado.getInt("numeroDoRegistro");
+                String categoriaRegulatoria = resultado.getString("categoriaRegulatoria");
+                Date periodoDePublicacao = resultado.getDate("periodoDePublicacao");
+                int Paciente = resultado.getInt("paciente");
+                int medicamento = resultado.getInt("medicamento");
                 
-                Paciente p = new Paciente(nome, cpf, cep, email);
-                p.setId(id);
-                pacientes.add(p);
+                Bula bula = new bula(int numeroDoRegistro, String categoriaRegulatoria, Date periodoDePublicacao, Date dataFinal, Paciente paciente, Medicamento medicamento);
+                bula.setId(id);
+                bulas.add(bula);
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return null;
         } 
-        return pacientes;
+        return bulas;
     }
-    
-    public static boolean excluirPaciente(String CPF){
+ 
+ public static boolean excluirBula(String numeroDoRegistro){
         createTable();
         Connection connection = ConnectDB.getConnection();
-        String sql = "DELETE FROM PACIENTE WHERE CPF = ?";
+        String sql = "DELETE FROM BULA WHERE numeroDoRegistro = ?";
         PreparedStatement pstmt;
 
         try {
             pstmt = connection.prepareStatement(sql);
-            pstmt.setString(1, CPF);
+            pstmt.setString(1, numeroDoRegistro);
             pstmt.execute();
-            System.out.println("Paciente deletado!");
+            System.out.println("Bula deletada!");
             return true;
         } catch (SQLException e) {
             System.out.println(e.getMessage());
             return false;
         }
     }
-
+    
+    
 }
