@@ -17,16 +17,14 @@ public class Bula {
     private String categoriaRegulatoria;
     private Date periodoDePublicacao;
     private Date dataFinal;
-    private Paciente paciente;
-    private Medicamento medicamento; 
+    
 
-    public Bula(int numeroDoRegistro, String categoriaRegulatoria, Date periodoDePublicacao, Date dataFinal, Paciente paciente, Medicamento medicamento) {
+    public Bula(int numeroDoRegistro, String categoriaRegulatoria, Date periodoDePublicacao, Date dataFinal) {
         this.numeroDoRegistro = numeroDoRegistro;
         this.categoriaRegulatoria = categoriaRegulatoria;
         this.periodoDePublicacao = periodoDePublicacao;
         this.dataFinal = dataFinal;
-        this.paciente = paciente;
-        this.medicamento = medicamento;
+        
     }
 
     public int getId() {
@@ -53,18 +51,12 @@ public class Bula {
         return dataFinal;
     }
 
-    public Paciente getPaciente() {
-        return paciente;
-    }
-
-    public Medicamento getMedicamento() {
-        return medicamento;
-    }
-
     @Override
     public String toString() {
-        return "Bula{" + "numeroDoRegistro=" + numeroDoRegistro + ", categoriaRegulatoria=" + categoriaRegulatoria + ", periodoDePublicacao=" + periodoDePublicacao + ", dataFinal=" + dataFinal + ", paciente=" + paciente + ", medicamento=" + medicamento + '}';
+        return "Bula{" + "id=" + id + ", numeroDoRegistro=" + numeroDoRegistro + ", categoriaRegulatoria=" + categoriaRegulatoria + ", periodoDePublicacao=" + periodoDePublicacao + ", dataFinal=" + dataFinal + '}';
     }
+
+    
     
     
     

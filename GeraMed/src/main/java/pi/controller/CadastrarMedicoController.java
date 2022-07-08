@@ -6,6 +6,9 @@
 package pi.controller;
 
 import java.awt.Color;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import pi.dao.MedicoDAO;
 import pi.view.TelaCadastraMedico;
 
 /**
@@ -17,7 +20,8 @@ public class CadastrarMedicoController {
     private Color cor;
     
     public CadastrarMedicoController(){
-        this.telaMedico = new TelaCadastraMedico();    
+        this.telaMedico = new TelaCadastraMedico();
+        adicionarAcoes();
     }
     
     
@@ -28,4 +32,21 @@ public class CadastrarMedicoController {
         telaMedico.setTela();
         telaMedico.exibirTela();
     }
+
+    private void adicionarAcoes() {
+                telaMedico.adicionarAcaoBtnSalvarMedico(new ActionListener(){
+
+                    @Override
+                    public void actionPerformed(ActionEvent e) {
+                        salvarMedico();
+                        System.out.println(MedicoDAO.getTodosMedico());
+                    }
+
+                    private void salvarMedico() {
+                        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+                    }
+        });
+    }
+    
+
 }

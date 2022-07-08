@@ -6,6 +6,7 @@
 package pi.view;
 
 import java.awt.Color;
+import java.awt.event.ActionListener;
 import java.util.Locale;
 
 /**
@@ -27,11 +28,29 @@ public class TelaCadastraMedico extends javax.swing.JFrame {
     }
     
     public void setTela(){
-        setSize(1280,900);
-        lblImg.setBounds(50,50,50,50);
+        setSize(1820,980);
+        /*lblImg.setBounds(50,50,50,50);
         lblImg.setLocation(250,100);
-        setLocationRelativeTo(null);
+        setLocationRelativeTo(null);*/
         getContentPane().setBackground(new Color(151,202,178));
+    }
+    
+    public String getNome(){
+        return txtNome.getText();
+    }
+    
+    public String getCep(){
+        return txtCep.getText();
+    }
+    public String getTelefone(){
+        return txtTelefone.getText();
+    }
+    public String getCrm(){
+        return txtCrm.getText();
+    }
+    
+    public void adicionarAcaoBtnSalvarMedico(ActionListener acao){
+        btnSalvar.addActionListener(acao);
     }
 
     /**
@@ -43,36 +62,95 @@ public class TelaCadastraMedico extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        lblImg = new javax.swing.JLabel();
+        jLabel1 = new javax.swing.JLabel();
+        txtNome = new javax.swing.JTextField();
+        jLabel2 = new javax.swing.JLabel();
+        txtCep = new javax.swing.JTextField();
+        jLabel3 = new javax.swing.JLabel();
+        txtTelefone = new javax.swing.JTextField();
+        jLabel4 = new javax.swing.JLabel();
+        txtCrm = new javax.swing.JTextField();
+        jLabel5 = new javax.swing.JLabel();
+        btnSalvar = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setAlwaysOnTop(true);
-        setForeground(new java.awt.Color(102, 102, 0));
+        setBackground(new java.awt.Color(151, 202, 178));
+        setForeground(new java.awt.Color(102, 102, 178));
         setLocation(new java.awt.Point(640, 320));
+        setPreferredSize(new java.awt.Dimension(1820, 920));
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        lblImg.setIcon(new javax.swing.ImageIcon("C:\\Users\\Rodrigo\\Desktop\\Prototipos e imagens\\imagens\\logoSistema5.png")); // NOI18N
-        lblImg.setVerticalAlignment(javax.swing.SwingConstants.BOTTOM);
-        lblImg.setHorizontalTextPosition(javax.swing.SwingConstants.CENTER);
+        jLabel1.setFont(new java.awt.Font("Tahoma", 0, 65)); // NOI18N
+        jLabel1.setText("Nome Completo:");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 140, 630, 90));
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                .addComponent(lblImg, javax.swing.GroupLayout.PREFERRED_SIZE, 411, javax.swing.GroupLayout.PREFERRED_SIZE)
-                .addGap(66, 66, 66))
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGroup(layout.createSequentialGroup()
-                .addContainerGap()
-                .addComponent(lblImg)
-                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
-        );
+        txtNome.setFont(new java.awt.Font("Tahoma", 0, 65)); // NOI18N
+        txtNome.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtNomeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtNome, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 140, 640, -1));
+
+        jLabel2.setFont(new java.awt.Font("Tahoma", 0, 65)); // NOI18N
+        jLabel2.setText("CEP:");
+        getContentPane().add(jLabel2, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 390, -1, -1));
+
+        txtCep.setFont(new java.awt.Font("Tahoma", 0, 65)); // NOI18N
+        txtCep.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCepActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCep, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 390, 640, -1));
+
+        jLabel3.setFont(new java.awt.Font("Tahoma", 0, 65)); // NOI18N
+        jLabel3.setText("Telefone:");
+        getContentPane().add(jLabel3, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 640, -1, -1));
+
+        txtTelefone.setFont(new java.awt.Font("Tahoma", 0, 65)); // NOI18N
+        txtTelefone.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtTelefoneActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtTelefone, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 640, 640, -1));
+
+        jLabel4.setFont(new java.awt.Font("Tahoma", 0, 65)); // NOI18N
+        jLabel4.setText("CRM:");
+        getContentPane().add(jLabel4, new org.netbeans.lib.awtextra.AbsoluteConstraints(230, 890, -1, 60));
+
+        txtCrm.setFont(new java.awt.Font("Tahoma", 0, 65)); // NOI18N
+        txtCrm.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                txtCrmActionPerformed(evt);
+            }
+        });
+        getContentPane().add(txtCrm, new org.netbeans.lib.awtextra.AbsoluteConstraints(1020, 880, 650, -1));
+        getContentPane().add(jLabel5, new org.netbeans.lib.awtextra.AbsoluteConstraints(580, 150, -1, -1));
+
+        btnSalvar.setText("Salvar");
+        getContentPane().add(btnSalvar, new org.netbeans.lib.awtextra.AbsoluteConstraints(1670, 1080, 110, 30));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void txtNomeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtNomeActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtNomeActionPerformed
+
+    private void txtCepActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCepActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCepActionPerformed
+
+    private void txtTelefoneActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtTelefoneActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtTelefoneActionPerformed
+
+    private void txtCrmActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtCrmActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_txtCrmActionPerformed
 
     /**
      * @param args the command line arguments
@@ -110,6 +188,15 @@ public class TelaCadastraMedico extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel lblImg;
+    private javax.swing.JButton btnSalvar;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel jLabel2;
+    private javax.swing.JLabel jLabel3;
+    private javax.swing.JLabel jLabel4;
+    private javax.swing.JLabel jLabel5;
+    private javax.swing.JTextField txtCep;
+    private javax.swing.JTextField txtCrm;
+    private javax.swing.JTextField txtNome;
+    private javax.swing.JTextField txtTelefone;
     // End of variables declaration//GEN-END:variables
 }

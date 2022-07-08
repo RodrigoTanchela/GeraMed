@@ -30,9 +30,7 @@ public class BulaDAO {
                 + "   numeroDoRegistro             INTEGER,"
                 + "   categoriaRegulatoria         VARCHAR(100),"
                 + "   periodoDePublicacao          DATE,"
-                + "   dataFinal                    Date,"
-                + "   paciente                     INTEGER,"
-                + "   medicamento                  INTEGER)";
+                + "   dataFinal                    DATE";
 
         Statement stmt = null;
         try {
@@ -46,7 +44,7 @@ public class BulaDAO {
     public static boolean salvarBula(Bula bula){
         createTable();
         Connection connection = ConnectDB.getConnection();
-        String sql = "INSERT INTO BULA (numeroDoRegistro,CategoriaRegulatoria,PeriodoDePublicacao,dataFinal,paciente,medicamento) VALUES(?, ?, ?, ?, ?, ?)";
+        String sql = "INSERT INTO BULA (numeroDoRegistro,CategoriaRegulatoria,PeriodoDePublicacao,dataFinal) VALUES(?, ?, ?, ?)";
         PreparedStatement pstmt;
 
         try {
@@ -55,8 +53,6 @@ public class BulaDAO {
             pstmt.setString(2, bula.getCategoriaRegulatoria());
             pstmt.setDate(3, bula.getPeriodoDePublicacao());
             pstmt.setDate(4, bula.getDataFinal());
-            pstmt.setInt(5, bula.getPaciente().getId());
-            pstmt.setDate(6, bula.getMedicamento().getId());
             pstmt.execute();
 
             System.out.println("Bula cadastrada!");
@@ -89,13 +85,7 @@ public class BulaDAO {
                 int id = resultado.getInt("id");
                 int numeroDoRegistro = resultado.getInt("numeroDoRegistro");
                 String categoriaRegulatoria = resultado.getString("categoriaRegulatoria");
-                Date periodoDePublicacao = resultado.getDate("periodoDePublicacao");
-                int Paciente = resultado.getInt("paciente");
-                int medicamento = resultado.getInt("medicamento");
-                
-                Bula bula = new bula(int numeroDoRegistro, String categoriaRegulatoria, Date periodoDePublicacao, Date dataFinal, Paciente paciente, Medicamento medicamento);
-                bula.setId(id);
-                bulas.add(bula);
+                Date periodoDePublicacao = resultado.getDate("periodoDePublicacao");        
             }
         } catch (SQLException e) {
             System.out.println(e.getMessage());
